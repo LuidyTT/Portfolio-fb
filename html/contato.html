@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Cadesnet</title>
+    <link rel="stylesheet" href="/css/contato.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder">CN</div>
+                    <span class="logo-text">Cadesnet</span>
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucoes.html">Soluções</a></li>
+                        <li><a href="contato.html" class="active">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Fale Conosco</h1>
+                    <p>Estamos aqui para ajudar você a encontrar a melhor solução em conectividade</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="contact-form-section" id="contact-form">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h2>Envie sua Mensagem</h2>
+                            <p>Preencha o formulário abaixo e nossa equipe entrará em contato</p>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Nome Completo *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                                    <span class="error-message" id="nameError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">E-mail *</label>
+                                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                                    <span class="error-message" id="emailError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Telefone *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(11) 99999-9999">
+                                    <span class="error-message" id="phoneError"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Assunto *</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Selecione um assunto</option>
+                                        <option value="suporte">Suporte Técnico</option>
+                                        <option value="vendas">Informações sobre Planos</option>
+                                        <option value="empresarial">Internet Empresarial</option>
+                                        <option value="reclamacao">Reclamação</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                    <span class="error-message" id="subjectError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="message">Mensagem *</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Descreva sua dúvida ou solicitação..." required></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <div class="form-options">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="newsletter" name="newsletter">
+                                        <label for="newsletter">Desejo receber novidades e promoções</label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <span class="btn-text">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Enviar Mensagem
+                                    </span>
+                                    <div class="btn-loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Enviando...
+                                    </div>
+                                </button>
+                            </div>
+                            
+                            <div class="form-success" id="formSuccess">
+                                <div class="success-content">
+                                    <i class="fas fa-check-circle"></i>
+                                    <h3>Mensagem Enviada com Sucesso!</h3>
+                                    <p>Obrigado pelo seu contato. Retornaremos em breve.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="form-sidebar">    
+                        <div class="sidebar-card">
+                            <h3>Horário de Atendimento</h3>
+                            <div class="business-hours">
+                                <div class="hour-item">
+                                    <span>Segunda - Sexta</span>
+                                    <span>08:00 - 18:00</span>
+                                </div>
+                                <div class="hour-item">
+                                    <span>Sábado</span>
+                                    <span>09:00 - 13:00</span>
+                                </div>
+                                <div class="hour-item">
+                                    <span>Domingo</span>
+                                    <span class="closed">Fechado</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-card">
+                            <h3>Atendimento Rápido</h3>
+                            <div class="quick-actions">
+                                <a href="https://wa.me/5511999999999" target="_blank" class="quick-action">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Localização e Mapa -->
+        <section class="location-section" id="location">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossa Localização</h2>
+                    <p>Venha nos visitar em nosso escritório central</p>
+                </div>
+                
+                <div class="location-content">
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                    
+                    <div class="location-info">
+                        <div class="info-card">
+                            <h3>Escritório Central</h3>
+                            <div class="info-details">
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <strong>Endereço</strong>
+                                        <p>Av. Paulista, 1000<br>Bela Vista, São Paulo - SP<br>01310-100</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>Telefone</strong>
+                                        <p>(11) 9999-9999</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>E-mail</strong>
+                                        <p>contato@cadesnet.com.br</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Horário</strong>
+                                        <p>Segunda a Sexta: 8h-18h<br>Sábado: 9h-13h</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="location-actions">
+                                <a href="https://maps.google.com/?q=Av. Paulista, 1000, São Paulo, SP" target="_blank" class="btn btn-outline">
+                                    <i class="fas fa-directions"></i>
+                                    Como Chegar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Perguntas Frequentes</h2>
+                    <p>Tire suas dúvidas mais comuns sobre nossos serviços</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-grid">
+                        <div class="faq-column">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Quais são os horários de atendimento?</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Atendimento telefônico 24 horas por dia, 7 dias por semana. Nosso escritório físico funciona de segunda a sexta das 8h às 18h e aos sábados das 9h às 13h.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Qual o prazo para instalação?</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>O prazo médio para instalação é de 3 a 5 dias úteis após a contratação, dependendo da disponibilidade técnica na sua região.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-column">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Como funciona o suporte técnico?</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Oferecemos suporte técnico remoto 24/7 e, quando necessário, enviamos um técnico até sua residência ou empresa em até 24 horas úteis.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Quais formas de pagamento são aceitas?</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Aceitamos cartão de crédito (até 12x), débito automático, boleto bancário e PIX. Para empresas, também oferecemos faturamento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-final">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Precisa de Ajuda Imediata?</h2>
+                    <p>Nossa equipe de suporte está disponível 24/7 para resolver seus problemas</p>
+                    <div class="cta-actions">
+                        <a href="tel:+551199999999" class="btn btn-primary btn-large">
+                            <i class="fas fa-phone"></i>
+                            Ligar para Suporte
+                        </a>
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-success btn-large">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Rápido
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-placeholder">CN</div>
+                        <span>Cadesnet</span>
+                    </div>
+                    <p>Conectando você com o mundo através da melhor internet.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucoes.html">Soluções</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#">Internet Residencial</a></li>
+                        <li><a href="#">Internet Empresarial</a></li>
+                        <li><a href="#">Link Dedicado</a></li>
+                        <li><a href="#">Wi-Fi Corporativo</a></li>
+                        <li><a href="#">Suporte Técnico</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                        <p><i class="fas fa-envelope"></i> contato@cadesnet.com.br</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Cadesnet. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/js/contato.js"></script>
+</body>
+</html>

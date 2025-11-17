@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Cadesnet</title>
+    <link rel="stylesheet" href="/css/servico.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder">CN</div>
+                    <span class="logo-text">Cadesnet</span>
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html" class="active">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucoes.html">Soluções</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Nossos Serviços</h1>
+                <p>Soluções completas em conectividade para residências e empresas</p>
+            </div>
+        </section>
+
+        <!-- Serviços em Destaque -->
+        <section class="featured-services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Serviços em Destaque</h2>
+                    <p>Conheça nossas principais soluções em conectividade</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card featured">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Internet Fibra Óptica</h3>
+                        <p>Internet de alta velocidade com tecnologia FTTH (Fiber to the Home). Ideal para streaming, jogos online e home office.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Velocidade de até 1Gbps</li>
+                            <li><i class="fas fa-check"></i> Conexão 100% fibra óptica</li>
+                            <li><i class="fas fa-check"></i> Estabilidade garantida</li>
+                            <li><i class="fas fa-check"></i> Suporte técnico especializado</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="#fibra" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card featured">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Internet Empresarial</h3>
+                        <p>Soluções dedicadas para empresas com SLA garantido e prioridade no atendimento.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Link dedicado</li>
+                            <li><i class="fas fa-check"></i> IP fixo inclusivo</li>
+                            <li><i class="fas fa-check"></i> SLA 99,9% de uptime</li>
+                            <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="#empresarial" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Todos os Serviços -->
+        <section class="all-services" id="all-services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Todos os Serviços</h2>
+                    <p>Conheça nossa gama completa de soluções</p>
+                </div>
+                
+                <div class="services-category">
+                    <h3 class="category-title">Conectividade</h3>
+                    <div class="services-grid">
+                        <div class="service-card" id="fibra">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Internet Residencial</h3>
+                            <p>Planos de internet fibra óptica para sua casa com melhor custo-benefício.</p>
+                            <div class="service-details">
+                                <div class="plan-highlight">
+                                    <span class="plan-speed">Até 500 Mbps</span>
+                                    <span class="plan-price">A partir de R$ 99,90</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" id="empresarial">
+                            <div class="service-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Internet Corporativa</h3>
+                            <p>Soluções empresariais com garantia de disponibilidade e suporte prioritário.</p>
+                            <div class="service-details">
+                                <div class="plan-highlight">
+                                    <span class="plan-speed">Links dedicados</span>
+                                    <span class="plan-price">Sob consulta</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3>Link Dedicado</h3>
+                            <p>Conexão exclusiva e garantida para empresas que dependem de alta disponibilidade.</p>
+                            <div class="service-details">
+                                <div class="feature-badge">SLA 99,9%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-category">
+                    <h3 class="category-title">Soluções Corporativas</h3>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <h3>Wi-Fi Corporativo</h3>
+                            <p>Implementação de redes wireless empresariais com segurança e performance.</p>
+                            <div class="service-details">
+                                <ul class="service-features compact">
+                                    <li><i class="fas fa-check"></i> Gestão centralizada</li>
+                                    <li><i class="fas fa-check"></i> Segurança avançada</li>
+                                    <li><i class="fas fa-check"></i> Relatórios de uso</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Segurança Digital</h3>
+                            <p>Proteção para sua rede corporativa contra ameaças e invasões.</p>
+                            <div class="service-details">
+                                <ul class="service-features compact">
+                                    <li><i class="fas fa-check"></i> Firewall gerenciavel</li>
+                                    <li><i class="fas fa-check"></i> Antivirus corporativo</li>
+                                    <li><i class="fas fa-check"></i> Monitoramento 24/7</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Conectividade em Nuvem</h3>
+                            <p>Conexões otimizadas para serviços em nuvem e data centers.</p>
+                            <div class="service-details">
+                                <ul class="service-features compact">
+                                    <li><i class="fas fa-check"></i> Otimização AWS/Azure</li>
+                                    <li><i class="fas fa-check"></i> VPN site-to-site</li>
+                                    <li><i class="fas fa-check"></i> Redundância garantida</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planos e Preços -->
+        <section class="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Planos Residenciais</h2>
+                    <p>Escolha o plano ideal para sua casa</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Básico</h3>
+                            <div class="price">
+                                <span class="currency">R$</span>
+                                <span class="amount">79,90</span>
+                                <span class="period">/mês</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-wifi"></i> 100 Mbps de velocidade</li>
+                                <li><i class="fas fa-download"></i> Download ilimitado</li>
+                                <li><i class="fas fa-upload"></i> Upload simétrico</li>
+                                <li><i class="fas fa-headset"></i> Suporte técnico</li>
+                                <li><i class="fas fa-shield-alt"></i> Segurança básica</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <button class="btn btn-outline">Contratar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Mais Popular</div>
+                        <div class="pricing-header">
+                            <h3>Intermediário</h3>
+                            <div class="price">
+                                <span class="currency">R$</span>
+                                <span class="amount">99,90</span>
+                                <span class="period">/mês</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-wifi"></i> 300 Mbps de velocidade</li>
+                                <li><i class="fas fa-download"></i> Download ilimitado</li>
+                                <li><i class="fas fa-upload"></i> Upload simétrico</li>
+                                <li><i class="fas fa-headset"></i> Suporte prioritário</li>
+                                <li><i class="fas fa-shield-alt"></i> Segurança avançada</li>
+                                <li><i class="fas fa-gamepad"></i> Otimizado para jogos</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <button class="btn btn-primary">Contratar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Avançado</h3>
+                            <div class="price">
+                                <span class="currency">R$</span>
+                                <span class="amount">149,90</span>
+                                <span class="period">/mês</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-wifi"></i> 500 Mbps de velocidade</li>
+                                <li><i class="fas fa-download"></i> Download ilimitado</li>
+                                <li><i class="fas fa-upload"></i> Upload simétrico</li>
+                                <li><i class="fas fa-headset"></i> Suporte 24/7</li>
+                                <li><i class="fas fa-shield-alt"></i> Segurança premium</li>
+                                <li><i class="fas fa-gamepad"></i> Prioridade em jogos</li>
+                                <li><i class="fas fa-cloud"></i> Backup em nuvem</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <button class="btn btn-outline">Contratar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pricing-footer">
+                    <p>* Todos os planos incluem instalação gratuita e roteador Wi-Fi dual band</p>
+                    <a href="#contact" class="btn-link">Fale com nosso comercial para planos empresariais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Porque Escolher -->
+        <section class="why-choose">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Porque Escolher a Cadesnet</h2>
+                    <p>Descubra os diferenciais que nos tornam a melhor escolha</p>
+                </div>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Alta Velocidade</h3>
+                        <p>Internet fibra óptica com velocidade real e estabilidade garantida</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Atendimento 24/7</h3>
+                        <p>Suporte técnico disponível a qualquer hora do dia ou noite</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Tecnologia Avançada</h3>
+                        <p>Utilizamos equipamentos de última geração e infraestrutura robusta</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Suporte Local</h3>
+                        <p>Equipe técnica local para atendimento rápido e personalizado</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Segurança Digital</h3>
+                        <p>Proteção avançada para seus dados e privacidade online</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Transparência</h3>
+                        <p>Sem surpresas na fatura e contrato claro sem letras miúdas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Pronto para melhorar sua conexão?</h2>
+                    <p>Entre em contato conosco e descubra a melhor solução para suas necessidades</p>
+                    <div class="cta-buttons">
+                        <a href="contato.html" class="btn btn-primary btn-large">Solicitar Orçamento</a>
+                        <a href="tel:+551199999999" class="btn btn-outline btn-large">
+                            <i class="fas fa-phone"></i> (11) 9999-9999
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-placeholder">CN</div>
+                        <span>Cadesnet</span>
+                    </div>
+                    <p>Conectando você com o mundo através da melhor internet.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucoes.html">Soluções</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#fibra">Internet Residencial</a></li>
+                        <li><a href="#empresarial">Internet Empresarial</a></li>
+                        <li><a href="#">Link Dedicado</a></li>
+                        <li><a href="#">Wi-Fi Corporativo</a></li>
+                        <li><a href="#">Suporte Técnico</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+                        <p><i class="fas fa-envelope"></i> contato@cadesnet.com.br</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Cadesnet. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/servico.js"></script>
+</body>
+</html>
