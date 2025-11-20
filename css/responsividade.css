@@ -218,6 +218,7 @@
     
     /* Footer Mobile */
     .footer-content {
+        flex-direction: column;
         grid-template-columns: 1fr;
         gap: 30px;
     }

@@ -1,21 +1,75 @@
 // ===== JAVASCRIPT ESPECÍFICO PARA PÁGINA DE SERVIÇOS =====
 
-class ServicosPage {
-    constructor() {
-        this.init();
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== DARK MODE ==========
+    const themeToggle = document.getElementById('themeToggle');
+    
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Verificar preferência salva ou do sistema
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.className = 'fas fa-moon';
+        }
+        
+        // Alternar tema
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
     }
 
-    init() {
-        this.setupScrollAnimations();
-        this.setupServiceInteractions();
-        this.setupPricingInteractions();
-        this.setupNavigation();
-        this.setupContactModals();
-        this.updateCurrentYear();
+    // ========== MENU MOBILE ==========
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Alterar ícone do botão
+            const icon = this.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
     }
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            if (mobileMenuBtn) {
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
 
-    // Configura animações de scroll
-    setupScrollAnimations() {
+    // ========== ANIMAÇÕES DE SCROLL ==========
+    function setupScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -43,25 +97,25 @@ class ServicosPage {
         });
     }
 
-    // Configura interações com serviços
-    setupServiceInteractions() {
+    // ========== INTERAÇÕES COM SERVIÇOS ==========
+    function setupServiceInteractions() {
         // Hover effects para cards de serviço
         document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', this.handleServiceCardHover);
-            card.addEventListener('mouseleave', this.handleServiceCardLeave);
+            card.addEventListener('mouseenter', handleServiceCardHover);
+            card.addEventListener('mouseleave', handleServiceCardLeave);
         });
 
         // Clique para expandir detalhes do serviço
         document.querySelectorAll('.service-card:not(.featured)').forEach(card => {
-            card.addEventListener('click', (e) => {
+            card.addEventListener('click', function(e) {
                 if (!e.target.closest('a')) {
-                    this.toggleServiceDetails(card);
+                    toggleServiceDetails(card);
                 }
             });
         });
     }
 
-    handleServiceCardHover(e) {
+    function handleServiceCardHover(e) {
         const card = e.currentTarget;
         const icon = card.querySelector('.service-icon');
         
@@ -70,7 +124,7 @@ class ServicosPage {
         }
     }
 
-    handleServiceCardLeave(e) {
+    function handleServiceCardLeave(e) {
         const card = e.currentTarget;
         const icon = card.querySelector('.service-icon');
         
@@ -79,7 +133,7 @@ class ServicosPage {
         }
     }
 
-    toggleServiceDetails(card) {
+    function toggleServiceDetails(card) {
         const details = card.querySelector('.service-details');
         if (details) {
             details.classList.toggle('expanded');
@@ -94,23 +148,23 @@ class ServicosPage {
         }
     }
 
-    // Configura interações com preços
-    setupPricingInteractions() {
+    // ========== INTERAÇÕES COM PREÇOS ==========
+    function setupPricingInteractions() {
         document.querySelectorAll('.pricing-cta .btn').forEach(button => {
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
-                this.handlePlanSelection(e.currentTarget);
+                handlePlanSelection(e.currentTarget);
             });
         });
 
         // Efeito de destaque para cards de preço
         document.querySelectorAll('.pricing-card').forEach(card => {
-            card.addEventListener('mouseenter', this.handlePricingCardHover);
-            card.addEventListener('mouseleave', this.handlePricingCardLeave);
+            card.addEventListener('mouseenter', handlePricingCardHover);
+            card.addEventListener('mouseleave', handlePricingCardLeave);
         });
     }
 
-    handlePricingCardHover(e) {
+    function handlePricingCardHover(e) {
         const card = e.currentTarget;
         if (!card.classList.contains('popular')) {
             card.style.borderColor = 'var(--primary)';
@@ -118,7 +172,7 @@ class ServicosPage {
         }
     }
 
-    handlePricingCardLeave(e) {
+    function handlePricingCardLeave(e) {
         const card = e.currentTarget;
         if (!card.classList.contains('popular')) {
             card.style.borderColor = '';
@@ -126,17 +180,17 @@ class ServicosPage {
         }
     }
 
-    handlePlanSelection(button) {
+    function handlePlanSelection(button) {
         const card = button.closest('.pricing-card');
         const planName = card.querySelector('h3').textContent;
         const price = card.querySelector('.amount').textContent;
         
-        this.showPlanModal(planName, price);
+        showPlanModal(planName, price);
     }
 
-    showPlanModal(planName, price) {
+    function showPlanModal(planName, price) {
         // Criar modal de contratação
-        const modal = this.createPlanModal(planName, price);
+        const modal = createPlanModal(planName, price);
         document.body.appendChild(modal);
         
         // Animar entrada do modal
@@ -145,10 +199,10 @@ class ServicosPage {
         }, 50);
 
         // Configurar fechamento do modal
-        this.setupModalClose(modal);
+        setupModalClose(modal);
     }
 
-    createPlanModal(planName, price) {
+    function createPlanModal(planName, price) {
         const modal = document.createElement('div');
         modal.className = 'service-modal';
         modal.innerHTML = `
@@ -192,7 +246,7 @@ class ServicosPage {
         return modal;
     }
 
-    setupModalClose(modal) {
+    function setupModalClose(modal) {
         const closeBtn = modal.querySelector('.modal-close');
         const overlay = modal.querySelector('.modal-overlay');
         const closeModalBtn = modal.querySelector('.close-modal');
@@ -219,25 +273,25 @@ class ServicosPage {
         });
     }
 
-    // Configura navegação suave
-    setupNavigation() {
+    // ========== NAVEGAÇÃO SUAVE ==========
+    function setupNavigation() {
         // Scroll suave para âncoras
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
-                this.scrollToSection(targetId);
+                scrollToSection(targetId);
             });
         });
 
         // Ativar link ativo baseado na scroll position
-        window.addEventListener('scroll', this.throttle(this.updateActiveNav, 100));
+        window.addEventListener('scroll', throttle(updateActiveNav, 100));
     }
 
-    scrollToSection(sectionId) {
+    function scrollToSection(sectionId) {
         const targetElement = document.querySelector(sectionId);
         if (targetElement) {
             const headerHeight = document.querySelector('.header').offsetHeight;
@@ -250,7 +304,7 @@ class ServicosPage {
         }
     }
 
-    updateActiveNav() {
+    function updateActiveNav() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
         
@@ -273,31 +327,31 @@ class ServicosPage {
         });
     }
 
-    // Configura modais de contato
-    setupContactModals() {
+    // ========== MODAIS DE CONTATO ==========
+    function setupContactModals() {
         // Modal para serviços específicos
         document.querySelectorAll('.service-cta .btn').forEach(button => {
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const serviceCard = button.closest('.service-card');
                 const serviceName = serviceCard.querySelector('h3').textContent;
-                this.showServiceContactModal(serviceName);
+                showServiceContactModal(serviceName);
             });
         });
     }
 
-    showServiceContactModal(serviceName) {
-        const modal = this.createServiceContactModal(serviceName);
+    function showServiceContactModal(serviceName) {
+        const modal = createServiceContactModal(serviceName);
         document.body.appendChild(modal);
         
         setTimeout(() => {
             modal.classList.add('show');
         }, 50);
         
-        this.setupModalClose(modal);
+        setupModalClose(modal);
     }
 
-    createServiceContactModal(serviceName) {
+    function createServiceContactModal(serviceName) {
         const modal = document.createElement('div');
         modal.className = 'service-modal';
         modal.innerHTML = `
@@ -335,8 +389,8 @@ class ServicosPage {
         return modal;
     }
 
-    // Atualiza ano no footer
-    updateCurrentYear() {
+    // ========== ATUALIZAR ANO NO FOOTER ==========
+    function updateCurrentYear() {
         const currentYear = new Date().getFullYear();
         const yearElement = document.querySelector('.footer-bottom p');
         if (yearElement) {
@@ -344,8 +398,8 @@ class ServicosPage {
         }
     }
 
-    // Utility function para throttle
-    throttle(func, limit) {
+    // ========== UTILITY FUNCTIONS ==========
+    function throttle(func, limit) {
         let inThrottle;
         return function() {
             const args = arguments;
@@ -357,11 +411,33 @@ class ServicosPage {
             }
         };
     }
-}
 
-// Inicializar quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    new ServicosPage();
+    // ========== INICIALIZAR TUDO ==========
+    setupScrollAnimations();
+    setupServiceInteractions();
+    setupPricingInteractions();
+    setupNavigation();
+    setupContactModals();
+    updateCurrentYear();
+
+    // ========== SMOOTH SCROLL (compatibilidade) ==========
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
 
 // Adicionar estilos dinâmicos para modais
@@ -556,6 +632,12 @@ const modalStyles = `
         .service-details.expanded {
             max-height: 500px;
             opacity: 1;
+        }
+        
+        @keyframes pulseFeatured {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         
         @media (max-width: 768px) {
