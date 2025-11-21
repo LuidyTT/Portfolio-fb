@@ -97,6 +97,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========== ANIMAÇÃO DA TIMELINE ==========
+    function initProcessAnimation() {
+        const processSteps = document.querySelectorAll('.process-step');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        processSteps.forEach(step => {
+            observer.observe(step);
+        });
+    }
+
     // ========== INTERAÇÕES COM SERVIÇOS ==========
     function setupServiceInteractions() {
         // Hover effects para cards de serviço
@@ -414,6 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== INICIALIZAR TUDO ==========
     setupScrollAnimations();
+    initProcessAnimation();
     setupServiceInteractions();
     setupPricingInteractions();
     setupNavigation();
