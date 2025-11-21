@@ -295,43 +295,77 @@ ul {
     background-color: var(--light);
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION COM IMAGEM ===== */
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    color: var(--white);
-    padding: var(--section-padding) 0;
-    text-align: center;
     position: relative;
+    padding: var(--section-padding) 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
-    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Fallback caso não tenha imagem */
+.hero-background:empty {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(44, 90, 160, 0.8) 0%,
+        rgba(58, 123, 213, 0.7) 100%
+    );
+    z-index: 1;
 }
 
 .hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+}
+
+.hero-content {
+    color: var(--white);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 30px;
+    opacity: 0.95;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
 }
 
 .hero-buttons {
@@ -339,6 +373,75 @@ ul {
     justify-content: center;
     gap: var(--gap-small);
     flex-wrap: wrap;
+}
+
+/* Elementos decorativos */
+.hero-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.circle-3 {
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Responsividade para a hero section */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+        padding: calc(var(--section-padding) - 20px) 0;
+    }
+    
+    .decoration-circle {
+        display: none;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 /* ===== SEÇÕES COM PADDING PADRONIZADO ===== */

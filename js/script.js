@@ -1,14 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // ========== DARK MODE ==========
     const themeToggle = document.getElementById('themeToggle');
-    
+
     if (themeToggle) {
         const themeIcon = themeToggle.querySelector('i');
-        
+
         // Verificar preferência salva ou do sistema
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeIcon.className = 'fas fa-sun';
@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.setAttribute('data-theme', 'light');
             themeIcon.className = 'fas fa-moon';
         }
-        
+
         // Alternar tema
-        themeToggle.addEventListener('click', function() {
+        themeToggle.addEventListener('click', function () {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            
+
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 themeIcon.className = 'fas fa-sun';
@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== MENU MOBILE ==========
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function () {
             navMenu.classList.toggle('active');
-            
+
             // Alterar ícone do botão
             const icon = this.querySelector('i');
             if (navMenu.classList.contains('active')) {
@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Fechar menu ao clicar em um link
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             navMenu.classList.remove('active');
             if (mobileMenuBtn) {
                 const icon = mobileMenuBtn.querySelector('i');
@@ -65,16 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // ========== SMOOTH SCROLL ==========
     const internalLinks = document.querySelectorAll('a[href^="#"]');
     internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -84,66 +84,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // ========== FORMULÁRIO DE CONTATO ==========
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulação de envio
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-    }
-    
-    // ========== NEWSLETTER ==========
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = this.querySelector('input[type="email"]');
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Inscrevendo...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert(`Obrigado por se inscrever com o e-mail: ${emailInput.value}`);
-                newsletterForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1000);
-        });
-    }
-    
+
     // ========== ANIMAÇÃO DE SCROLL ==========
-    const animateOnScroll = function() {
+    const animateOnScroll = function () {
         const elements = document.querySelectorAll('.service-card, .highlight-item, .process-step, .commitment-item, .testimonial-card');
-        
+
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.2;
-            
+
             if (elementPosition < screenPosition) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
             }
         });
     };
-    
+
     // Configurar elementos para animação
     const animatedElements = document.querySelectorAll('.service-card, .highlight-item, .process-step, .commitment-item, .testimonial-card');
     animatedElements.forEach(element => {
@@ -151,39 +107,39 @@ document.addEventListener('DOMContentLoaded', function() {
         element.style.transform = 'translateY(20px)';
         element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
-    
+
     // Executar animação no carregamento e no scroll
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
-    
+
     // ========== COOKIE CONSENT ==========
     const cookieConsent = document.getElementById('cookieConsent');
     const acceptCookies = document.getElementById('acceptCookies');
     const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
-    
+
     if (cookieConsent && acceptCookies) {
         if (!localStorage.getItem('cookiesAccepted')) {
             setTimeout(() => {
                 cookieConsent.style.display = 'block';
             }, 1000);
         }
-        
-        acceptCookies.addEventListener('click', function() {
+
+        acceptCookies.addEventListener('click', function () {
             localStorage.setItem('cookiesAccepted', 'true');
             cookieConsent.style.display = 'none';
         });
-        
+
         if (cookieSettingsBtn) {
-            cookieSettingsBtn.addEventListener('click', function() {
+            cookieSettingsBtn.addEventListener('click', function () {
                 alert('Configurações de cookies: Você pode gerenciar suas preferências de cookies nas configurações do seu navegador.');
             });
         }
     }
-    
+
     // Configurações de cookies no footer
     const cookieSettingsLink = document.getElementById('cookieSettings');
     if (cookieSettingsLink) {
-        cookieSettingsLink.addEventListener('click', function(e) {
+        cookieSettingsLink.addEventListener('click', function (e) {
             e.preventDefault();
             alert('Configurações de cookies: Você pode gerenciar suas preferências de cookies nas configurações do seu navegador.');
         });
@@ -192,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Scroll animation para processo de trabalho
 function initProcessAnimation() {
     const processSteps = document.querySelectorAll('.process-step');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -210,6 +166,6 @@ function initProcessAnimation() {
 }
 
 // Inicializar quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initProcessAnimation();
 });
