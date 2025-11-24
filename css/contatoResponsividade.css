@@ -1,0 +1,407 @@
+/* ===== RESPONSIVIDADE PARA PÁGINA DE CONTATO ===== */
+/* Organizado por breakpoints seguindo o padrão da index */
+
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+    .form-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-hero,
+    .contact-form-section,
+    .location-section,
+    .faq-section,
+    .cta-final {
+        padding: 80px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .form-content {
+        padding: 35px 25px;
+    }
+    
+    .sidebar-card {
+        padding: 25px 20px;
+    }
+    
+    .info-card {
+        padding: 30px 25px;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablets pequenos e mobile grande */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .faq-question {
+        padding: 20px 25px;
+    }
+    
+    .form-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .business-hours {
+        gap: 12px;
+    }
+}
+
+/* Dispositivos móveis pequenos */
+@media (max-width: 576px) {
+    :root {
+        --section-padding: 60px;
+        --card-padding: 25px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .form-content {
+        padding: 30px 20px;
+    }
+    
+    .sidebar-card {
+        padding: 25px 20px;
+    }
+    
+    .info-card {
+        padding: 30px 25px;
+    }
+    
+    .contact-hero,
+    .contact-form-section,
+    .location-section,
+    .faq-section,
+    .cta-final {
+        padding: 60px 0;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+    }
+    
+    .quick-action {
+        padding: 12px 16px;
+    }
+    
+    .hour-item {
+        padding: 10px 0;
+    }
+    
+    .location-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .faq-question {
+        padding: 18px 20px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .cta-actions .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    .form-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .sidebar-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-large {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .form-content {
+        padding: 25px 15px;
+    }
+    
+    .sidebar-card {
+        padding: 20px 15px;
+    }
+    
+    .info-card {
+        padding: 25px 20px;
+    }
+    
+    .faq-question {
+        padding: 18px 20px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+}
+
+/* Dispositivos muito largos */
+@media (min-width: 1400px) {
+    .form-container {
+        grid-template-columns: 1.5fr 0.5fr;
+    }
+    
+    .location-content {
+        grid-template-columns: 1fr 350px;
+    }
+    
+    .map-container {
+        height: 550px;
+    }
+    
+    .contact-hero {
+        padding: 140px 0 100px;
+    }
+}
+
+/* Orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .contact-hero {
+        padding: 80px 0 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    .form-content {
+        padding: 25px;
+    }
+    
+    .cta-final {
+        padding: 60px 0;
+    }
+}
+
+/* Impressão */
+@media print {
+    .contact-hero,
+    .cta-final,
+    .form-sidebar,
+    .quick-actions,
+    .social-links,
+    .theme-toggle,
+    .mobile-menu-btn,
+    .cookie-consent {
+        display: none !important;
+    }
+    
+    .contact-form-section,
+    .location-section,
+    .faq-section {
+        padding: 20pt 0 !important;
+    }
+    
+    .form-content {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+    
+    .location-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .map-container {
+        height: 300px !important;
+        page-break-inside: avoid;
+    }
+    
+    .info-card {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+    
+    .btn {
+        display: none !important;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: white !important;
+        border: 1px solid #000 !important;
+        color: black !important;
+    }
+}
+
+/* Acessibilidade - Alto Contraste */
+@media (prefers-contrast: high) {
+    .form-content,
+    .sidebar-card,
+    .info-card,
+    .faq-item {
+        border: 2px solid var(--primary) !important;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: 3px solid var(--primary) !important;
+        border-color: var(--primary) !important;
+    }
+    
+    .quick-action {
+        border-width: 3px;
+    }
+    
+    .hour-item {
+        border-bottom-width: 2px;
+    }
+}
+
+/* Redução de Movimento */
+@media (prefers-reduced-motion: reduce) {
+    .contact-hero::before,
+    .cta-final::before,
+    .form-content,
+    .sidebar-card,
+    .info-card,
+    .faq-item,
+    .quick-action,
+    .btn,
+    .hour-item,
+    .info-item,
+    .faq-question i {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .form-content:hover,
+    .sidebar-card:hover,
+    .info-card:hover,
+    .faq-item:hover,
+    .quick-action:hover,
+    .btn:hover,
+    .hour-item:hover,
+    .info-item:hover {
+        transform: none !important;
+    }
+    
+    .form-success {
+        animation: none !important;
+    }
+    
+    .contact-hero,
+    .cta-final {
+        background-attachment: scroll !important;
+    }
+}
