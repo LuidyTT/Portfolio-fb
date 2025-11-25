@@ -248,6 +248,15 @@ ul {
     width: 100%;
 }
 
+.nav-menu .active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.nav-menu .active::after {
+    width: 100%;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
@@ -1198,6 +1207,8 @@ ul {
 .footer-bottom p {
     color: var(--gray);
     font-size: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-links {

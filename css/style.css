@@ -251,6 +251,15 @@ ul {
     width: 100%;
 }
 
+.nav-menu .active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.nav-menu .active::after {
+    width: 100%;
+}
+
 .header-actions {
     display: flex;
     align-items: center;
