@@ -3,105 +3,120 @@
 
 /* Tablets e dispositivos médios */
 @media (max-width: 992px) {
-    .form-container {
+    .contact-form-container {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
-    .location-content {
+    .contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .form-row {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 0;
     }
     
-    .map-container {
-        height: 400px;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-hero,
-    .contact-form-section,
-    .location-section,
-    .faq-section,
-    .cta-final {
-        padding: 80px 0;
-    }
-    
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-    
-    .form-content {
+    .contact-form {
         padding: 35px 25px;
     }
     
-    .sidebar-card {
-        padding: 25px 20px;
-    }
-    
-    .info-card {
+    .form-intro {
         padding: 30px 25px;
     }
     
-    .cta-content h2 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Tablets pequenos e mobile grande */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-    }
-    
-    .cta-content h2 {
-        font-size: 2.2rem;
-    }
-    
-    .cta-content p {
-        font-size: 1.1rem;
-    }
-    
-    .cta-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .faq-question {
-        padding: 20px 25px;
-    }
-    
-    .form-header h2 {
+    .form-intro h2 {
         font-size: 1.8rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.4rem;
     }
     
     .section-title h2 {
         font-size: 1.8rem;
     }
     
-    .info-card h3 {
-        font-size: 1.4rem;
+    .contact-method-card {
+        padding: 30px 20px;
     }
     
-    .business-hours {
-        gap: 12px;
+    .contact-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+    }
+}
+
+/* Tablets pequenos e mobile grande */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 70px;
+    }
+    
+    .contact-form-section,
+    .contact-info-section {
+        padding: 70px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .form-intro h2 {
+        font-size: 1.6rem;
+    }
+    
+    .form-intro p {
+        font-size: 1rem;
+    }
+    
+    .feature-item {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
+        padding: 16px 24px;
+        font-size: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .section-title p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-method-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-method-card a,
+    .contact-method-card span {
+        font-size: 1rem;
     }
 }
 
@@ -112,100 +127,168 @@
         --card-padding: 25px;
     }
     
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .form-content {
-        padding: 30px 20px;
-    }
-    
-    .sidebar-card {
-        padding: 25px 20px;
-    }
-    
-    .info-card {
-        padding: 30px 25px;
-    }
-    
-    .contact-hero,
     .contact-form-section,
-    .location-section,
-    .faq-section,
-    .cta-final {
+    .contact-info-section {
         padding: 60px 0;
     }
     
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .hero {
+        padding: 80px 0 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .contact-form-container {
+        gap: 30px;
+    }
+    
+    .form-intro {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .form-intro h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .form-features {
+        gap: 12px;
+    }
+    
+    .feature-item {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .feature-item i {
+        font-size: 1rem;
+    }
+    
+    .contact-form {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
     }
     
     .form-group input,
     .form-group select,
     .form-group textarea {
-        padding: 14px 16px;
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 10px;
     }
     
-    .quick-action {
-        padding: 12px 16px;
+    .checkbox-group {
+        padding: 12px 14px;
+        font-size: 0.85rem;
     }
     
-    .hour-item {
-        padding: 10px 0;
+    .submit-btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        border-radius: 10px;
     }
     
-    .location-actions .btn {
-        width: 100%;
-        text-align: center;
+    .contact-methods {
+        gap: 15px;
+        margin-top: 40px;
     }
     
-    .faq-question {
-        padding: 18px 20px;
+    .contact-method-card {
+        padding: 25px 20px;
+        border-radius: 12px;
     }
     
-    .faq-question h3 {
-        font-size: 1rem;
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
     }
     
-    .cta-actions .btn {
-        width: 100%;
-        max-width: 280px;
+    .contact-method-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .contact-method-card p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    
+    .contact-method-card a,
+    .contact-method-card span {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+    
+    .section-title {
+        margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+    
+    .section-title p {
+        font-size: 0.9rem;
     }
 }
 
 /* Dispositivos muito pequenos */
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
-    .cta-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .cta-content p {
-        font-size: 1rem;
-    }
-    
-    .form-header h2 {
-        font-size: 1.6rem;
-    }
-    
-    .section-title h2 {
-        font-size: 1.6rem;
-    }
-    
-    .info-card h3 {
+    .form-intro h2 {
         font-size: 1.3rem;
     }
     
-    .sidebar-card h3 {
-        font-size: 1.2rem;
+    .contact-form {
+        padding: 20px 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 11px 13px;
+    }
+    
+    .contact-method-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.3rem;
     }
     
     .btn {
@@ -213,146 +296,114 @@
         font-size: 0.9rem;
     }
     
-    .btn-large {
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-    
-    .form-content {
-        padding: 25px 15px;
-    }
-    
-    .sidebar-card {
-        padding: 20px 15px;
-    }
-    
-    .info-card {
-        padding: 25px 20px;
-    }
-    
-    .faq-question {
-        padding: 18px 20px;
-    }
-    
-    .faq-question h3 {
-        font-size: 1rem;
-    }
-    
-    .map-container {
-        height: 350px;
+    .container {
+        width: 95%;
+        padding: 0 10px;
     }
 }
 
 /* Dispositivos muito largos */
 @media (min-width: 1400px) {
-  .container {
+    .container {
         max-width: 1320px;
     }
     
-    .form-container {
-        grid-template-columns: 1.5fr 0.5fr;
+    .contact-form-container {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
     }
     
-    .location-content {
-        grid-template-columns: 1fr 350px;
+    .contact-form {
+        padding: 60px 50px;
     }
     
-    .map-container {
-        height: 550px;
-    }
-    
-    .contact-hero {
-        padding: 140px 0 100px;
+    .form-intro {
+        padding: 50px 40px;
     }
 }
 
 /* Orientação paisagem em mobile */
 @media (max-height: 500px) and (orientation: landscape) {
-    .contact-hero {
-        padding: 80px 0 40px;
+    .hero {
+        padding: 60px 0 40px;
     }
     
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
-    .map-container {
-        height: 300px;
+    .contact-form-section,
+    .contact-info-section {
+        padding: 50px 0;
     }
     
-    .form-content {
+    .contact-form-container {
+        gap: 25px;
+    }
+    
+    .form-intro {
+        padding: 20px;
+    }
+    
+    .contact-form {
         padding: 25px;
     }
     
-    .cta-final {
-        padding: 60px 0;
+    .form-group {
+        margin-bottom: 15px;
     }
 }
 
 /* Impressão */
 @media print {
-    .contact-hero,
-    .cta-final,
-    .form-sidebar,
-    .quick-actions,
-    .social-links,
-    .theme-toggle,
-    .mobile-menu-btn,
-    .cookie-consent {
-        display: none !important;
-    }
-    
     .contact-form-section,
-    .location-section,
-    .faq-section {
+    .contact-info-section {
         padding: 20pt 0 !important;
     }
     
-    .form-content {
-        background: white !important;
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-    }
-    
-    .location-content {
+    .contact-form-container {
         grid-template-columns: 1fr !important;
+        gap: 20pt !important;
     }
     
-    .map-container {
-        height: 300px !important;
-        page-break-inside: avoid;
+    .form-intro {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
     }
     
-    .info-card {
+    .contact-form {
         background: white !important;
         border: 1px solid #ccc !important;
         box-shadow: none !important;
     }
     
-    .btn {
-        display: none !important;
+    .contact-methods {
+        grid-template-columns: 1fr !important;
+        gap: 15pt !important;
     }
     
-    a {
-        color: black !important;
-        text-decoration: underline;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .contact-method-card {
         background: white !important;
-        border: 1px solid #000 !important;
-        color: black !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+    
+    .btn,
+    .theme-toggle,
+    .mobile-menu-btn,
+    .social-links,
+    .footer {
+        display: none !important;
     }
 }
 
 /* Acessibilidade - Alto Contraste */
 @media (prefers-contrast: high) {
-    .form-content,
-    .sidebar-card,
-    .info-card,
-    .faq-item {
+    .contact-form,
+    .form-intro,
+    .contact-method-card {
         border: 2px solid var(--primary) !important;
     }
     
@@ -362,50 +413,26 @@
         outline: 3px solid var(--primary) !important;
         border-color: var(--primary) !important;
     }
-    
-    .quick-action {
-        border-width: 3px;
-    }
-    
-    .hour-item {
-        border-bottom-width: 2px;
-    }
 }
 
 /* Redução de Movimento */
 @media (prefers-reduced-motion: reduce) {
-    .contact-hero::before,
-    .cta-final::before,
-    .form-content,
-    .sidebar-card,
-    .info-card,
-    .faq-item,
-    .quick-action,
-    .btn,
-    .hour-item,
-    .info-item,
-    .faq-question i {
-        transition: none !important;
+    .contact-form-container,
+    .contact-method-card,
+    .form-intro,
+    .contact-form {
         animation: none !important;
+        transition: none !important;
     }
     
-    .form-content:hover,
-    .sidebar-card:hover,
-    .info-card:hover,
-    .faq-item:hover,
-    .quick-action:hover,
-    .btn:hover,
-    .hour-item:hover,
-    .info-item:hover {
+    .contact-method-card:hover,
+    .feature-item:hover,
+    .contact-method-card a:hover {
         transform: none !important;
     }
     
-    .form-success {
-        animation: none !important;
-    }
-    
-    .contact-hero,
-    .cta-final {
-        background-attachment: scroll !important;
+    .contact-method-card::before,
+    .contact-icon::before {
+        display: none !important;
     }
 }
