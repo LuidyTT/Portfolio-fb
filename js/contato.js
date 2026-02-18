@@ -124,12 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 return false;
             }
 
-            // Validar checkbox de privacidade
-            if (field.id === 'privacy' && !field.checked) {
-                showError(field, 'Você deve aceitar a política de privacidade');
-                return false;
-            }
-
             return true;
         }
 
@@ -160,13 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     isValid = false;
                 }
             });
-
-            // Validar checkbox de privacidade
-            const privacy = document.getElementById('privacy');
-            if (privacy && !privacy.checked) {
-                showError(privacy, 'Você deve aceitar a política de privacidade');
-                isValid = false;
-            }
 
             return isValid;
         }
@@ -586,3 +573,4 @@ dynamicStyles.textContent = `
 `;
 
 document.head.appendChild(dynamicStyles);
+

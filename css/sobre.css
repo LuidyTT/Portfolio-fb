@@ -39,9 +39,9 @@
 [data-theme="dark"] {
     --light: #1a1d23;
     --white: #2d3138;
+    --textContrast: #f8f9fa;
     --dark: #f8f9fa;
     --text: #e9ecef;
-    --textContrast: #f8f9fa;
     --gray: #adb5bd;
     --border: #495057;
     --card-bg: #2d3138;

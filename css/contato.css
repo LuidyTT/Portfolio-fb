@@ -39,6 +39,7 @@
 [data-theme="dark"] {
     --light: #1a1d23;
     --white: #2d3138;
+    --textContrast: #f8f9fa;
     --dark: #f8f9fa;
     --text: #e9ecef;
     --textContrast: #f8f9fa;
@@ -534,27 +535,22 @@ ul {
 
 .form-intro {
     padding: 40px 30px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    background-color: var(--card-bg);
     border-radius: 20px;
-    color: var(--white);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
 }
 
 .form-intro::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    transform: rotate(30deg);
+    display: none;
 }
 
 .form-intro h2 {
     font-size: 2.2rem;
+    color: var(--primary);
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
@@ -562,9 +558,10 @@ ul {
 
 .form-intro p {
     font-size: 1.1rem;
+    color: var(--gray);
     line-height: 1.7;
     margin-bottom: 30px;
-    opacity: 0.95;
+    opacity: 1;
     position: relative;
     z-index: 1;
 }
@@ -583,25 +580,37 @@ ul {
     gap: 12px;
     font-weight: 500;
     padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.15);
+    background-color: var(--light);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 
 .feature-item:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(44, 90, 160, 0.08);
     transform: translateX(5px);
 }
 
 .feature-item i {
     font-size: 1.2rem;
-    color: var(--white);
+    color: var(--primary);
 }
 
 .feature-item span {
-    color: var(--white);
+    color: var(--text);
     font-size: 1rem;
+}
+
+[data-theme="dark"] .form-intro h2,
+[data-theme="dark"] .form-intro p,
+[data-theme="dark"] .feature-item i,
+[data-theme="dark"] .feature-item span {
+    color: var(--primary-light);
+}
+
+[data-theme="dark"] .feature-item {
+    background: rgba(58, 123, 213, 0.08);
+    border-color: rgba(58, 123, 213, 0.35);
 }
 
 /* Formulário */
